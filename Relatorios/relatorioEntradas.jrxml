@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorioEntradas" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="30463f42-aa89-47bf-b78e-5524c331b869">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="data_inicio" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="data_fim" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tbl_entrada.`cod_entrada` AS tbl_entrada_cod_entrada,
+     tbl_entrada.`descricao` AS tbl_entrada_descricao,
+     tbl_entrada.`cod_barras` AS tbl_entrada_cod_barras,
+     tbl_entrada.`fornecedor` AS tbl_entrada_fornecedor,
+     tbl_entrada.`data_entrada` AS tbl_entrada_data_entrada,
+     tbl_entrada.`qtde_entrada` AS tbl_entrada_qtde_entrada,
+     tbl_entrada.`valor_total` AS tbl_entrada_valor_total
+FROM
+     `tbl_entrada` tbl_entrada
+WHERE
+     STR_TO_DATE(data_entrada,'%d/%m/%Y') BETWEEN STR_TO_DATE($P{data_inicio},'%d/%m/%Y')AND STR_TO_DATE($P{data_fim},'%d/%m/%Y')]]>
+	</queryString>
+	<field name="tbl_entrada_cod_entrada" class="java.lang.Long"/>
+	<field name="tbl_entrada_descricao" class="java.lang.String"/>
+	<field name="tbl_entrada_cod_barras" class="java.lang.String"/>
+	<field name="tbl_entrada_fornecedor" class="java.lang.String"/>
+	<field name="tbl_entrada_data_entrada" class="java.lang.String"/>
+	<field name="tbl_entrada_qtde_entrada" class="java.lang.Long"/>
+	<field name="tbl_entrada_valor_total" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="83" splitType="Stretch">
+			<image>
+				<reportElement x="13" y="0" width="77" height="43" uuid="fc17e42d-081f-41fe-aaf5-97fb9b4035ae"/>
+				<imageExpression><![CDATA["C:\\Users\\Rafael Medeiros\\Documents\\NetBeansProjects\\ERPCaloriCar\\Relatorios\\logoautopecasbranco.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="463" y="0" width="77" height="43" uuid="ffddfbf7-8c53-49ec-af60-77663ceaa761"/>
+				<imageExpression><![CDATA["C:\\Users\\Rafael Medeiros\\Documents\\NetBeansProjects\\ERPCaloriCar\\Relatorios\\logocentroautomotivo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="196" y="0" width="162" height="20" uuid="fb8cfdce-a73d-4260-a496-ff411bab82e5"/>
+				<textElement>
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relação de Entrada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="103" y="23" width="59" height="20" uuid="e6bec17a-d3f8-4c70-b352-788a54e2a648"/>
+				<text><![CDATA[Data Inicio:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="162" y="23" width="100" height="20" uuid="76b6ed9e-825f-4a0e-b6a8-54a5864b140d"/>
+				<textFieldExpression><![CDATA[$P{data_inicio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="296" y="23" width="51" height="20" uuid="fb278225-3306-442b-9fca-e3852bf1a06d"/>
+				<text><![CDATA[Data Fim:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="347" y="23" width="100" height="20" uuid="79796d1e-0a13-443e-acc6-8f1ffc3df9bb"/>
+				<textFieldExpression><![CDATA[$P{data_fim}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="3" y="43" width="552" height="1" uuid="7e241b13-5f20-4147-96c7-054f5cd4ea74"/>
+			</line>
+			<staticText>
+				<reportElement x="3" y="63" width="134" height="20" uuid="f69b5f56-718d-48ed-80a1-1379801707bf"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descrição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="162" y="63" width="134" height="20" uuid="fc90c1d4-6954-4631-a222-aa1166f8d29d"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CodBarras]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="316" y="63" width="67" height="20" uuid="a422874e-3c94-405c-b3c1-480094d72ae8"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="63" width="32" height="20" uuid="9c7c8447-3ec7-40f2-913e-c2842a1dbf60"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Qtde]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="447" y="63" width="37" height="20" uuid="c887983e-e301-4b18-b481-eb4440e8213a"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="3" y="0" width="134" height="20" uuid="0f80af0c-87fc-4037-9db1-03d6a6628d58"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_entrada_descricao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="0" width="134" height="20" uuid="d436a0d5-ebe2-441b-9f37-ae7bd1e368b0"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_entrada_cod_barras}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="316" y="0" width="67" height="20" uuid="9ae6e9e8-b7bf-4b13-a4cf-80018a7b0fb1"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_entrada_data_entrada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="396" y="0" width="32" height="20" uuid="834ad421-8e82-4368-8e38-34d345d6e900"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_entrada_qtde_entrada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="447" y="0" width="37" height="20" uuid="0216e3d7-c170-4d81-93c1-fb8aab021ec3"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_entrada_valor_total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

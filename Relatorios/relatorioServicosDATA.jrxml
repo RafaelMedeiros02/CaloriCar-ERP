@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorioServicosDATA" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b1f60b60-5d88-4bf4-a211-996b8f9634d5">
+	<property name="ireport.zoom" value="1.4641000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="style1">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="inicio" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fim" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tbl_servicos_reg.`cliente` AS tbl_servicos_reg_cliente,
+     tbl_servicos_reg.`modelo` AS tbl_servicos_reg_modelo,
+     tbl_servicos_reg.`placa` AS tbl_servicos_reg_placa,
+     tbl_servicos_reg.`data_entrada` AS tbl_servicos_reg_data_entrada,
+     tbl_servicos_reg.`data_saida` AS tbl_servicos_reg_data_saida,
+     tbl_servicos_reg.`total_pagar` AS tbl_servicos_reg_total_pagar,
+     tbl_servicos_reg.`descricao` AS tbl_servicos_reg_descricao,
+     tbl_servicos_reg.`encerramento` AS tbl_servicos_reg_encerramento
+FROM
+     `tbl_servicos_reg` tbl_servicos_reg
+WHERE tbl_servicos_reg.data_entrada BETWEEN $P{inicio} AND $P{fim}]]>
+	</queryString>
+	<field name="tbl_servicos_reg_cliente" class="java.lang.String"/>
+	<field name="tbl_servicos_reg_modelo" class="java.lang.String"/>
+	<field name="tbl_servicos_reg_placa" class="java.lang.String"/>
+	<field name="tbl_servicos_reg_data_entrada" class="java.lang.String"/>
+	<field name="tbl_servicos_reg_data_saida" class="java.lang.String"/>
+	<field name="tbl_servicos_reg_total_pagar" class="java.lang.Double"/>
+	<field name="tbl_servicos_reg_descricao" class="java.lang.String"/>
+	<field name="tbl_servicos_reg_encerramento" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="130" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="95" height="45" uuid="8a887b44-af49-45eb-ad00-98cbde4ce091"/>
+				<imageExpression><![CDATA["C:\\Users\\Rafael Medeiros\\Documents\\NetBeansProjects\\ERPCaloriCar\\Relatorios\\logocentroautomotivo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="241" y="0" width="314" height="28" uuid="88624f8f-aefd-41ed-97d4-0a038b7d3f8b"/>
+				<textElement>
+					<font fontName="Arial" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relação de Serviços Realizados]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="48" width="555" height="1" uuid="7d01ec64-4bc5-451e-8624-c2426d25a657"/>
+			</line>
+			<staticText>
+				<reportElement x="296" y="28" width="259" height="20" uuid="fbd0b084-bf62-4000-bbb0-a0a94e2ee6d6"/>
+				<text><![CDATA[Rua Toto Pedrosa, 110, Tapiratiba-SP, 19 3657-8053]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="49" width="152" height="16" uuid="be06950a-5bc9-41e6-9b78-5881db8529cc"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Intervalo de datas (Inicio):]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="152" y="49" width="110" height="20" uuid="f92e4d4c-1062-4d39-a43b-4e164893a8a4"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{inicio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="275" y="49" width="31" height="20" uuid="25d864ed-97ed-4ce2-89d2-0690165b775f"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fim:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="306" y="49" width="110" height="20" uuid="ff296e5b-00d2-4ff4-a87f-b960bf1ec6f3"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fim}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="65" width="555" height="1" uuid="bb6636d9-759e-4167-a062-ffccf155683a"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="110" width="114" height="20" uuid="209d8937-59a4-4c93-9a3e-dfdd0f3d075f"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Cliente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="114" y="110" width="89" height="20" uuid="f9f22388-53e8-45ae-9543-45a238e1934f"/>
+				<textElement>
+					<font fontName="Arial" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Modelo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="203" y="110" width="59" height="20" uuid="72d34182-1e8d-4b3b-9818-2234a514c331"/>
+				<textElement>
+					<font fontName="Arial" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Placa:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="262" y="110" width="48" height="20" uuid="934d3994-89cb-4b89-9e7b-84a72a1ff629"/>
+				<textElement>
+					<font fontName="Arial" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Entrada:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="110" width="54" height="20" uuid="ab4f1eff-b307-47d7-b814-d10a1baf6e9d"/>
+				<textElement>
+					<font fontName="Arial" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[ Saída:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="364" y="109" width="40" height="20" uuid="bfed313a-3dbd-464e-bc06-1c137980dddf"/>
+				<textElement>
+					<font fontName="Arial" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Total:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="404" y="110" width="151" height="20" uuid="57f0aa16-1445-4222-b44d-a1eb8e2efb34"/>
+				<textElement>
+					<font fontName="Arial" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Descrição:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="129" width="555" height="1" uuid="80ad9f65-857b-49a1-96f9-ad0478978f57"/>
+			</line>
+		</band>
+	</title>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement style="style1" x="0" y="0" width="555" height="20" uuid="f058a090-674f-4850-b64a-f79cda9540aa"/>
+				<textField>
+					<reportElement x="262" y="1" width="58" height="19" uuid="a7de3acc-17b7-48ed-bec2-c15d6adebe50"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tbl_servicos_reg_data_entrada}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField>
+				<reportElement x="0" y="1" width="114" height="20" uuid="6b9ef575-3575-4ea1-bb52-603335f057e2"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_servicos_reg_cliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="114" y="1" width="89" height="20" uuid="df374ee1-d760-4000-82c7-bcd5741d2401"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_servicos_reg_modelo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="203" y="0" width="59" height="20" uuid="fa554c81-71b3-420c-af65-88f89001502c"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_servicos_reg_placa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="320" y="0" width="54" height="20" uuid="6f4c55fc-4494-468a-9cba-ff959bb2f9b6"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[ $F{tbl_servicos_reg_data_saida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="374" y="1" width="30" height="20" uuid="3018b261-426e-44df-b4c9-d0616b555f64"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_servicos_reg_total_pagar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="404" y="0" width="151" height="20" uuid="21120774-b221-46be-bc2a-46526900298b"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_servicos_reg_descricao}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

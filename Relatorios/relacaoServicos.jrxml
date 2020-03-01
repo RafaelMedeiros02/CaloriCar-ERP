@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relacaoServicos" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3accf8c2-e874-4ae1-ab43-69b81f9251e7">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="style1">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#FFFF12"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="cod" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tbl_servicos_reg.`cod_servico` AS tbl_servicos_reg_cod_servico,
+     tbl_servicos_reg.`cliente` AS tbl_servicos_reg_cliente,
+     tbl_servicos_reg.`modelo` AS tbl_servicos_reg_modelo,
+     tbl_servicos_reg.`placa` AS tbl_servicos_reg_placa,
+     tbl_servicos_reg.`data_entrada` AS tbl_servicos_reg_data_entrada,
+     tbl_servicos_reg.`data_saida` AS tbl_servicos_reg_data_saida,
+     tbl_servicos_reg.`sub_total` AS tbl_servicos_reg_sub_total,
+     tbl_servicos_reg.`descontos` AS tbl_servicos_reg_descontos,
+     tbl_servicos_reg.`forma_pagamento` AS tbl_servicos_reg_forma_pagamento,
+     tbl_servicos_reg.`total_pagar` AS tbl_servicos_reg_total_pagar,
+     tbl_servicos_reg.`a_receber` AS tbl_servicos_reg_a_receber,
+     tbl_servicos_reg.`troco` AS tbl_servicos_reg_troco,
+     tbl_servicos_reg.`descricao` AS tbl_servicos_reg_descricao,
+     tbl_servicos_reg.`qtde` AS tbl_servicos_reg_qtde,
+     tbl_servicos_reg.`valor_unit` AS tbl_servicos_reg_valor_unit,
+     tbl_servicos_reg.`valor_total` AS tbl_servicos_reg_valor_total,
+     tbl_servicos_reg.`encerramento` AS tbl_servicos_reg_encerramento,
+     tbl_servicos_reg.`usuario` AS tbl_servicos_reg_usuario
+FROM
+     `tbl_servicos_reg` tbl_servicos_reg
+WHERE tbl_servicos_reg.cod_servico = $P{cod}]]>
+	</queryString>
+	<field name="tbl_servicos_reg_cod_servico" class="java.lang.Long"/>
+	<field name="tbl_servicos_reg_cliente" class="java.lang.String"/>
+	<field name="tbl_servicos_reg_modelo" class="java.lang.String"/>
+	<field name="tbl_servicos_reg_placa" class="java.lang.String"/>
+	<field name="tbl_servicos_reg_data_entrada" class="java.lang.String"/>
+	<field name="tbl_servicos_reg_data_saida" class="java.lang.String"/>
+	<field name="tbl_servicos_reg_sub_total" class="java.lang.Double"/>
+	<field name="tbl_servicos_reg_descontos" class="java.lang.Double"/>
+	<field name="tbl_servicos_reg_forma_pagamento" class="java.lang.String"/>
+	<field name="tbl_servicos_reg_total_pagar" class="java.lang.Double"/>
+	<field name="tbl_servicos_reg_a_receber" class="java.lang.Double"/>
+	<field name="tbl_servicos_reg_troco" class="java.lang.Double"/>
+	<field name="tbl_servicos_reg_descricao" class="java.lang.String"/>
+	<field name="tbl_servicos_reg_qtde" class="java.lang.Long"/>
+	<field name="tbl_servicos_reg_valor_unit" class="java.lang.Double"/>
+	<field name="tbl_servicos_reg_valor_total" class="java.lang.Double"/>
+	<field name="tbl_servicos_reg_encerramento" class="java.lang.String"/>
+	<field name="tbl_servicos_reg_usuario" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="164" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="217" height="49" uuid="ed2c3998-e74d-489c-9c77-345ae667403b"/>
+				<imageExpression><![CDATA["C:\\Users\\Rafael Medeiros\\Documents\\NetBeansProjects\\ERPCaloriCar\\Relatorios\\logocentroautomotivo.jpg"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="0" y="50" width="555" height="1" uuid="0f84f087-7029-4f75-841a-7fe7ab787081"/>
+			</line>
+			<staticText>
+				<reportElement x="217" y="12" width="325" height="38" uuid="0eb421da-31f0-4f9c-aa08-d43eeaaa68cd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="22"/>
+				</textElement>
+				<text><![CDATA[Relação Prestação de Serviços ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="51" width="294" height="20" uuid="ef2949e9-0aa1-4ced-bf99-dfd84173249f"/>
+				<text><![CDATA[Rua Toto Pedrosa, 110, Tapiratiba-SP,  19 3657-8053]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="71" width="555" height="1" uuid="b824f0cd-014a-4bf6-8560-40eb6414442d"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="83" width="60" height="20" uuid="18b478df-4404-4469-a156-1fc7d668a722"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cliente:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="60" y="83" width="212" height="20" uuid="0dec27ca-7a89-4c47-bce7-e970a475401e"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_servicos_reg_cliente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="288" y="83" width="63" height="20" uuid="19884e4b-dafc-46a0-99f6-cbb796d35521"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Modelo:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="351" y="83" width="191" height="20" uuid="ccdc28c7-23c5-493c-aa71-dbcc8b2833c9"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_servicos_reg_modelo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="103" width="46" height="20" uuid="34b9e441-faac-4d89-bbb5-c2aacacb6c1f"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Placa:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="46" y="103" width="100" height="20" uuid="50c4bd55-7639-4bdd-bddd-84d1481d05fb"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_servicos_reg_placa}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="146" y="103" width="100" height="20" uuid="5df7398f-a323-419b-ab5a-56e8713aad04"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data Entrada:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="246" y="103" width="100" height="20" uuid="1c0b5c6b-0b3a-47c7-82f0-e64183f575cd"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_servicos_reg_data_entrada}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="351" y="103" width="84" height="20" uuid="e96a03f9-51e5-416c-92e7-05eb1a1e4302"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data Saída:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="435" y="103" width="100" height="20" uuid="9a58ac4f-c2e6-4de1-9097-9739679cae30"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_servicos_reg_data_saida}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="123" width="555" height="1" uuid="f3055486-a148-4edb-819a-bf565cdf9a3f"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="144" width="146" height="20" uuid="692c7ffb-4f03-4c16-93e2-7a9f43896036"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Serviços/Peças/Produtos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="217" y="144" width="88" height="20" uuid="d8679d2a-d8bc-4f10-a8f5-08fe9227d113"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor Unitário]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="317" y="144" width="34" height="20" uuid="9ef8f160-d0a3-4f53-b482-7e2c51da2650"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Qtde]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="364" y="144" width="71" height="20" uuid="e8c82b17-4a26-465e-8085-67acb222cdad"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor Total]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="163" width="555" height="1" uuid="506165da-eb0d-4f08-8868-3b02e2f3b6d2"/>
+			</line>
+		</band>
+	</title>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement style="style1" mode="Opaque" x="0" y="1" width="555" height="20" uuid="f215d44b-fadc-4d84-9386-bc051edd9a1e"/>
+			</frame>
+			<textField>
+				<reportElement x="0" y="1" width="217" height="20" uuid="801b2c59-f1c9-44ee-bab3-71b35676e669"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_servicos_reg_descricao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="217" y="1" width="100" height="20" uuid="6372c39c-e6aa-4baa-a3bc-22aeb51acd28"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_servicos_reg_valor_unit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="317" y="1" width="34" height="20" uuid="f1611b5a-c367-43e4-ac20-3446d4585a08"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_servicos_reg_qtde}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="364" y="1" width="71" height="20" uuid="55c77c73-389b-4b70-809c-ef22d5d6ac6e"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_servicos_reg_valor_total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="121" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="719a5ef5-88ad-4200-9221-995a6dc32880"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="20" uuid="ddf3c09e-d080-4b74-9729-fe9b7cd0d54a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Informações]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="20" width="555" height="1" uuid="66b3cd01-cb83-4680-9d27-9652975299a2"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="32" width="70" height="20" uuid="136f25f2-aa8f-4733-bfa2-269ef2d16354"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SubTotal:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="70" y="32" width="51" height="20" uuid="dace8dfb-5ee5-4d41-8ad0-49695caceefc"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_servicos_reg_sub_total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="146" y="32" width="85" height="20" uuid="3f7e5ba2-a260-4705-b03c-72e24e2a5d66"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descontos:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="231" y="32" width="63" height="20" uuid="d8851a62-28d6-4303-b0a5-3730dea7221a"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_servicos_reg_descontos}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="305" y="32" width="134" height="20" uuid="e1a6e9fe-ac66-4de4-9c55-b9b5b54d3b63"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Forma Pagamento:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="435" y="32" width="85" height="20" uuid="8ff0df33-c14c-4bdc-8fc4-a27f60214c1f"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_servicos_reg_forma_pagamento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="52" width="82" height="20" uuid="98883f5d-71f4-458e-89ec-d3dd133cdb8e"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Pago:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="82" y="52" width="77" height="20" uuid="f0d361da-3d3d-4918-8781-2b7d12444fe0"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_servicos_reg_total_pagar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="72" width="109" height="20" uuid="036260a5-9efe-4ed4-a5b2-f425db658ea5"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Encerramento:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="109" y="72" width="237" height="20" uuid="9c353eb6-480c-41be-a07a-4311cc30bd35"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_servicos_reg_encerramento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="374" y="82" width="181" height="20" uuid="a6d23f8b-428b-4d85-a029-8143afaffeb1"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tbl_servicos_reg_usuario}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="374" y="82" width="181" height="1" uuid="19278747-64d9-440d-b063-4b1f9551536b"/>
+			</line>
+		</band>
+	</pageFooter>
+</jasperReport>

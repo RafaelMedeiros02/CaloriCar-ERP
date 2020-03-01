@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="maisVendidos" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a8e2d699-1f7c-4ca6-ac8d-4000397e9ea8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="style1">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#3366FF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="limit" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT   descricao,
+         COUNT(descricao) AS Qtd
+FROM  tbl_vendas
+GROUP BY descricao
+HAVING   COUNT(descricao) > 0
+ORDER BY COUNT(descricao) DESC LIMIT $P{limit}]]>
+	</queryString>
+	<field name="descricao" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Qtd" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="105" splitType="Stretch">
+			<image>
+				<reportElement x="10" y="0" width="99" height="53" uuid="62b18651-467b-4752-a5b0-a4d8bfec00bc"/>
+				<imageExpression><![CDATA["C:\\Users\\Rafael Medeiros\\Documents\\NetBeansProjects\\ERPCaloriCar\\Relatorios\\logoautopecas.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="233" y="0" width="322" height="28" uuid="616d79d5-64e7-4125-8028-fe2d53aa049b"/>
+				<textElement>
+					<font fontName="Arial" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relação Mais Vendidos - Autopeças]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="63" width="555" height="1" uuid="2db1dffd-28aa-4cae-9f5e-452517705749"/>
+			</line>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="316" y="28" width="202" height="20" uuid="647b71bf-0c0b-46a0-be4f-36dd619217d8"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="85" width="233" height="20" uuid="20ff3c08-d341-4054-8367-350f7fccc3cf"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descrição:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="252" y="85" width="152" height="20" uuid="c259457d-62e2-4d8b-b0fe-700370c9fc08"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quantidade Vendida:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="104" width="555" height="1" uuid="1b3eb614-3ee6-470f-af87-6d4df6056c5c"/>
+			</line>
+		</band>
+	</title>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement style="style1" x="0" y="0" width="555" height="20" uuid="959d2cd5-6dac-4ec7-aa0b-99a61facf916"/>
+			</frame>
+			<textField>
+				<reportElement x="0" y="0" width="233" height="20" uuid="2b6a6a72-3791-4bdf-9a4e-308bc5865782"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descricao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="252" y="0" width="152" height="20" uuid="9a264811-74c0-472e-b4f4-0ce1234e9f66"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Qtd}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="518" y="34" width="37" height="20" uuid="c82744ca-f265-4755-8879-63528a903b32"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

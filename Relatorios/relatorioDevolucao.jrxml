@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorioDevolucao" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8b2fde50-b3bd-4dab-aee9-1290040b8499">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="style1">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Transparent" backcolor="#CCCCFF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="data_inicio" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="data_fim" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tbl_devolucao.`cod_devolucao` AS tbl_devolucao_cod_devolucao,
+     tbl_devolucao.`cod_barras` AS tbl_devolucao_cod_barras,
+     tbl_devolucao.`descricao` AS tbl_devolucao_descricao,
+     tbl_devolucao.`qtde` AS tbl_devolucao_qtde,
+     tbl_devolucao.`valor` AS tbl_devolucao_valor,
+     tbl_devolucao.`motivo` AS tbl_devolucao_motivo,
+     tbl_devolucao.`data_venda` AS tbl_devolucao_data_venda,
+     tbl_devolucao.`data_devolucao` AS tbl_devolucao_data_devolucao,
+     tbl_devolucao.`usuario` AS tbl_devolucao_usuario,
+     tbl_devolucao.`nmr_cupom` AS tbl_devolucao_nmr_cupom
+FROM
+     `tbl_devolucao` tbl_devolucao
+WHERE
+     STR_TO_DATE(data_devolucao,'%d/%m/%Y') BETWEEN STR_TO_DATE($P{data_inicio},'%d/%m/%Y')AND STR_TO_DATE($P{data_fim},'%d/%m/%Y')]]>
+	</queryString>
+	<field name="tbl_devolucao_cod_devolucao" class="java.lang.Long"/>
+	<field name="tbl_devolucao_cod_barras" class="java.lang.String"/>
+	<field name="tbl_devolucao_descricao" class="java.lang.String"/>
+	<field name="tbl_devolucao_qtde" class="java.lang.Long"/>
+	<field name="tbl_devolucao_valor" class="java.lang.Double"/>
+	<field name="tbl_devolucao_motivo" class="java.lang.String"/>
+	<field name="tbl_devolucao_data_venda" class="java.lang.String"/>
+	<field name="tbl_devolucao_data_devolucao" class="java.lang.String"/>
+	<field name="tbl_devolucao_usuario" class="java.lang.String"/>
+	<field name="tbl_devolucao_nmr_cupom" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="90" splitType="Stretch">
+			<image>
+				<reportElement x="461" y="0" width="77" height="43" uuid="551bc366-dc20-4603-bdbc-5f516d27b110"/>
+				<imageExpression><![CDATA["C:\\Users\\Rafael Medeiros\\Documents\\NetBeansProjects\\ERPCaloriCar\\Relatorios\\logocentroautomotivo.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="18" y="0" width="77" height="43" uuid="26a5f01c-62ca-40c6-aa4c-4490f485e207"/>
+				<imageExpression><![CDATA["C:\\Users\\Rafael Medeiros\\Documents\\NetBeansProjects\\ERPCaloriCar\\Relatorios\\logoautopecasbranco.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="195" y="0" width="175" height="25" uuid="6c65b00b-c9d1-41b3-af5a-21e9119c97c0"/>
+				<textElement>
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relação de Devolução]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="53" width="555" height="1" uuid="fceefac1-4cb6-4101-b02f-bb5b3fe2655c"/>
+			</line>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="195" y="23" width="175" height="20" uuid="a70f79a3-0b1f-4b9d-9abd-e0c8599ee9d7"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="70" width="167" height="20" uuid="5897ef34-f267-4c33-bb1a-91b60c179432"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Item]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="70" width="146" height="20" uuid="cd679f36-e91e-4168-bb99-c347ae09c042"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Motivo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="345" y="70" width="95" height="20" uuid="d37dab02-1649-49bc-b05d-475543ccdcbd"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data Devolução]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="472" y="70" width="66" height="20" uuid="6cd93714-b2e3-4a8a-b8d8-c732c4923465"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cod Venda]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement style="style1" mode="Opaque" x="0" y="0" width="555" height="20" uuid="b4bc0cbe-2e1d-4609-a68d-11c0908fb0b7"/>
+			</frame>
+			<textField>
+				<reportElement x="0" y="0" width="167" height="20" uuid="d8c852cd-1aeb-4c64-93e9-808557c8adf2"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_devolucao_descricao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="184" y="0" width="146" height="20" uuid="a11133e5-7107-486a-ab29-5e94b052d12c"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_devolucao_motivo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="345" y="0" width="95" height="20" uuid="93efb77a-fd97-4a3c-a8c5-c232a5748321"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_devolucao_data_devolucao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="472" y="0" width="47" height="20" uuid="72367630-16c1-41f7-a0f6-3fb154b78420"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_devolucao_nmr_cupom}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

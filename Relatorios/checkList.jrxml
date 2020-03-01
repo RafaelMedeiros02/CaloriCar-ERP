@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="checkList" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c2f1ef96-fc63-416e-b8d3-c73952744433">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="cod_unic" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="codigo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="codigo_ident" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tbl_servicos.`ordem_servico` AS tbl_servicos_ordem_servico,
+     tbl_servicos.`cliente` AS tbl_servicos_cliente,
+     tbl_servicos.`fixo` AS tbl_servicos_fixo,
+     tbl_servicos.`celular` AS tbl_servicos_celular,
+     tbl_servicos.`modelo` AS tbl_servicos_modelo,
+     tbl_servicos.`placa` AS tbl_servicos_placa,
+     tbl_servicos.`data_entrada` AS tbl_servicos_data_entrada,
+     tbl_servicos.`cod_unic` AS tbl_servicos_cod_unic
+FROM
+     `tbl_servicos` tbl_servicos
+WHERE ordem_servico = $P{codigo_ident}]]>
+	</queryString>
+	<field name="tbl_servicos_ordem_servico" class="java.lang.Long"/>
+	<field name="tbl_servicos_cliente" class="java.lang.String"/>
+	<field name="tbl_servicos_fixo" class="java.lang.String"/>
+	<field name="tbl_servicos_celular" class="java.lang.String"/>
+	<field name="tbl_servicos_modelo" class="java.lang.String"/>
+	<field name="tbl_servicos_placa" class="java.lang.String"/>
+	<field name="tbl_servicos_data_entrada" class="java.lang.String"/>
+	<field name="tbl_servicos_cod_unic" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="116" splitType="Stretch">
+			<image>
+				<reportElement x="11" y="0" width="89" height="54" uuid="40c29ad1-0af2-4891-bbe6-59783de637ed"/>
+				<imageExpression><![CDATA["C:\\Users\\Rafael Medeiros\\Documents\\NetBeansProjects\\ERPCaloriCar\\Relatorios\\logocentroautomotivo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="110" y="13" width="261" height="24" uuid="dcbc5165-7b91-4725-8a5d-631acebe2d42"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CheckList - Estado geral do veiculo.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="54" width="555" height="1" uuid="47ea7386-0509-4e20-84d1-841d168e9100"/>
+			</line>
+			<staticText>
+				<reportElement x="11" y="55" width="48" height="20" uuid="a11f0007-c763-4b52-9fce-a87268e571b4"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cliente:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="59" y="55" width="169" height="20" uuid="46b79d3a-6b26-4466-8c8b-0dc7a51d9215"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_servicos_cliente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="255" y="55" width="52" height="20" uuid="398b04ee-feda-475c-ac8b-2ca58a9c2496"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Modelo:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="307" y="55" width="120" height="20" uuid="dbcd5569-1aac-46bc-8fe1-3a29f1f0448c"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_servicos_modelo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="75" width="38" height="20" uuid="3cb8ee20-86fc-42ca-80ad-20beabac8f86"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Placa:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="49" y="75" width="85" height="20" uuid="3c2b30e4-2825-48a3-b6d6-e1459c4b4805"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_servicos_placa}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="255" y="75" width="80" height="20" uuid="b5274312-2efd-417d-b726-605d073a3c3b"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data Entrada:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="335" y="75" width="100" height="20" uuid="26ec584e-3905-497b-946c-d34402912823"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_servicos_data_entrada}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="95" width="555" height="1" uuid="53ba7ab2-a732-4349-bd6d-e6365b238c11"/>
+			</line>
+			<staticText>
+				<reportElement x="178" y="95" width="206" height="20" uuid="d8ae95b5-44d4-45a2-9b3e-8e575934c343"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Informações Referente ao Veiculo.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="115" width="555" height="1" uuid="252fc9cd-f376-4bfe-946c-9604222fdcc4"/>
+			</line>
+		</band>
+	</title>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="11" width="134" height="20" uuid="ba7535fe-a7f9-4dc7-adf5-6e2c2588d80b"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quilometragem (Total):]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="144" y="11" width="94" height="20" uuid="0ff694ad-0f55-41b3-a824-ca99261c945c"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="255" y="11" width="134" height="20" uuid="44bd6081-d827-487f-9627-05f8e9088fb8"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quilometragem (Atual):]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="400" y="11" width="94" height="20" uuid="a991b46c-a2a8-474e-a0c8-1790e8ad1b7a"/>
+			</rectangle>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

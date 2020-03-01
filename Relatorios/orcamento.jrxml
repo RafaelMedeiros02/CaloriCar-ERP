@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="orcamento" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2826e884-eb6a-46d2-8893-9640218b8e85">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="cod" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tbl_orcamentos.`cod_orcamento` AS tbl_orcamentos_cod_orcamento,
+     tbl_orcamentos.`cliente` AS tbl_orcamentos_cliente,
+     tbl_orcamentos.`telefone` AS tbl_orcamentos_telefone,
+     tbl_orcamentos.`celular` AS tbl_orcamentos_celular,
+     tbl_orcamentos.`total_final` AS tbl_orcamentos_total_final,
+     tbl_orcamentos.`cod_peca` AS tbl_orcamentos_cod_peca,
+     tbl_orcamentos.`descricao` AS tbl_orcamentos_descricao,
+     tbl_orcamentos.`valorUnidade` AS tbl_orcamentos_valorUnidade,
+     tbl_orcamentos.`qtde` AS tbl_orcamentos_qtde,
+     tbl_orcamentos.`totalPPeca` AS tbl_orcamentos_totalPPeca,
+     tbl_orcamentos.`data_orcamento` AS tbl_orcamentos_data_orcamento,
+     tbl_orcamentos.`usuario` AS tbl_orcamentos_usuario
+FROM
+     `tbl_orcamentos` tbl_orcamentos
+WHERE cod_orcamento = $P{cod}]]>
+	</queryString>
+	<field name="tbl_orcamentos_cod_orcamento" class="java.lang.Long"/>
+	<field name="tbl_orcamentos_cliente" class="java.lang.String"/>
+	<field name="tbl_orcamentos_telefone" class="java.lang.String"/>
+	<field name="tbl_orcamentos_celular" class="java.lang.String"/>
+	<field name="tbl_orcamentos_total_final" class="java.lang.Double"/>
+	<field name="tbl_orcamentos_cod_peca" class="java.lang.String"/>
+	<field name="tbl_orcamentos_descricao" class="java.lang.String"/>
+	<field name="tbl_orcamentos_valorUnidade" class="java.lang.Double"/>
+	<field name="tbl_orcamentos_qtde" class="java.lang.Long"/>
+	<field name="tbl_orcamentos_totalPPeca" class="java.lang.Double"/>
+	<field name="tbl_orcamentos_data_orcamento" class="java.lang.String"/>
+	<field name="tbl_orcamentos_usuario" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<image>
+				<reportElement x="10" y="0" width="82" height="48" uuid="fdc4c02b-bea3-4245-b886-7680c31edd95"/>
+				<imageExpression><![CDATA["C:\\Users\\Rafael Medeiros\\Documents\\NetBeansProjects\\ERPCaloriCar\\Relatorios\\logocentroautomotivo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="92" y="11" width="371" height="20" uuid="b5384d50-a6bb-4fe4-bb4a-734d877aaa0c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Orçamento]]></text>
+			</staticText>
+			<image>
+				<reportElement x="463" y="0" width="82" height="48" uuid="ccdc39a3-95f4-4daf-9f3f-39715ede9eb3"/>
+				<imageExpression><![CDATA["C:\\Users\\Rafael Medeiros\\Documents\\NetBeansProjects\\ERPCaloriCar\\Relatorios\\logoautopecasbranco.png"]]></imageExpression>
+			</image>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="92" y="31" width="371" height="20" uuid="7a000835-3048-4774-a675-6fc7b84affa1"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="51" width="555" height="1" uuid="d9baf78f-7beb-4e87-80fe-24196fb37ced"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="63" width="47" height="20" uuid="2f87d9c7-53c6-48a4-b2bf-4c5802842f04"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cliente:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="47" y="63" width="184" height="20" uuid="84c1f8f1-404c-424f-9016-558dc6a3098a"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_orcamentos_cliente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="83" width="54" height="20" uuid="151a8a72-9afa-4e57-9af4-67185e96ea09"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telefone:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="54" y="83" width="177" height="20" uuid="1cb17818-69ba-4794-bea2-d7a882670d2e"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_orcamentos_telefone}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="257" y="83" width="50" height="20" uuid="23e1e7b9-83d5-432c-83c8-b579a182259e"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Celular:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="307" y="83" width="156" height="20" uuid="21b25df1-46c4-44d0-99fe-63f06232a7dd"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_orcamentos_celular}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="103" width="555" height="1" uuid="a621ae27-8bde-4c97-8564-025c6969574e"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="116" width="231" height="20" uuid="88b2cc5a-0883-42c5-b060-455549faef8c"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descrição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="246" y="116" width="60" height="20" uuid="f64216b6-413c-4d8d-8ac6-70b40ce71c79"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VUnidade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="116" width="31" height="20" uuid="dab342bd-cf7a-4634-afbc-4514a664e956"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Qtde]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="369" y="116" width="36" height="20" uuid="29f351ae-3eb1-43b6-8b9a-10e72d6e454b"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="231" height="20" uuid="b02002ca-d6b6-4279-8852-37365e2d8130"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_orcamentos_descricao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="247" y="0" width="60" height="20" uuid="8dccc38c-1441-4319-a828-9d8222bca78a"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_orcamentos_valorUnidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="320" y="0" width="31" height="20" uuid="5e63d151-8892-4a2d-b774-22583a122419"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_orcamentos_qtde}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="371" y="0" width="34" height="20" uuid="c3905100-e150-4fc4-9d9f-f2ca3ac93d74"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_orcamentos_totalPPeca}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="34" width="76" height="20" uuid="45181ade-6b12-413f-99ab-67d294e95907"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Emitido por:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="76" y="34" width="170" height="20" uuid="c92f25f7-7c79-4e42-a88f-73e529d89d89"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_orcamentos_usuario}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="14" width="76" height="20" uuid="afd5cc2b-d056-452e-857b-0672953e18ae"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor Total:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="76" y="14" width="100" height="20" uuid="caf87a89-06b0-4b76-825a-90b3ad27fc10"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_orcamentos_total_final}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="195" y="14" width="100" height="20" uuid="d4cf9735-3ac5-4294-ac05-263eccdb4cb5"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data Orçamento:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="295" y="14" width="100" height="20" uuid="1ff88775-14ea-4666-a386-bb0926994c1d"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_orcamentos_data_orcamento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="427" y="14" width="47" height="20" uuid="672c435a-b66e-4bd7-864c-9b960f078d85"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="474" y="14" width="53" height="20" uuid="a1fe0c4c-990f-42ed-b12d-a210be936908"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tbl_orcamentos_cod_orcamento}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="e9db2087-81c8-4bec-b649-d9d2f87e48c6"/>
+			</line>
+		</band>
+	</pageFooter>
+</jasperReport>
